@@ -29,7 +29,7 @@ public class MessageActivity extends AppCompatActivity{
         }
 
         else if (points == -10){
-            message = "You Loose";
+            message = "You Lose";
             txtmessage.setText(message);
         }
 
