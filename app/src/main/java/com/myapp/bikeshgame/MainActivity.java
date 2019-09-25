@@ -2,6 +2,7 @@ package com.myapp.bikeshgame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        Random newrandom = new Random();
         if (v.getId() == R.id.btnfirst) {
             value1 = Integer.parseInt(btnfirst.getText().toString());
             value2 = Integer.parseInt(btnsecond.getText().toString());
@@ -51,6 +53,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             txtPoints.setText(String.valueOf(points));
+            randomNumber = newrandom.nextInt(100);
+            randomNumber2 = newrandom.nextInt(100);
+
+            btnfirst.setText(String.valueOf(randomNumber));
+            btnsecond.setText(String.valueOf(randomNumber2));
 
         } else if (v.getId() == R.id.btnsecond) {
             value1 = Integer.parseInt(btnfirst.getText().toString());
@@ -62,7 +69,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             txtPoints.setText(String.valueOf(points));
+            randomNumber = newrandom.nextInt(100);
+            randomNumber2 = newrandom.nextInt(100);
 
+            btnfirst.setText(String.valueOf(randomNumber));
+            btnsecond.setText(String.valueOf(randomNumber2));
+
+        }
+        if (points == 10 || points == -10){
+            Intent intent = new Intent(MainActivity.this,MessageActivity.class);
+            intent.putExtra("points",points);
+            startActivity(intent);
         }
     }
 }
