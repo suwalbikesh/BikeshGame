@@ -10,10 +10,19 @@
     <TextView
         android:id="@+id/txtMessage"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="50dp"
         android:layout_gravity="center"
         android:fontFamily="sans-serif-black"
         android:textSize="60dp" />
+
+    <Button
+        android:id="@+id/btnOk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:background="@color/colorPrimaryDark"
+        android:layout_margin="20dp"
+        android:hint="OK" />
 
 </LinearLayout>

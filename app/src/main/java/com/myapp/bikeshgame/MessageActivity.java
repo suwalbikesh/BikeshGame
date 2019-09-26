@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
-public class MessageActivity extends AppCompatActivity{
+public class MessageActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView txtmessage;
+    private Button btnOk;
     int points;
     String message;
 
@@ -18,6 +21,7 @@ public class MessageActivity extends AppCompatActivity{
 
         //binding
         txtmessage = findViewById(R.id.txtMessage);
+        btnOk = findViewById(R.id.btnOk);
 
         Intent intent = getIntent();
 
@@ -33,6 +37,17 @@ public class MessageActivity extends AppCompatActivity{
             txtmessage.setText(message);
         }
 
+        btnOk.setOnClickListener(this);
+
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.btnOk) {
+            Intent in = new Intent(MessageActivity.this,MainActivity.class);
+            startActivity(in);
+        }
 
     }
 }
